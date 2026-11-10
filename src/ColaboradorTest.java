@@ -16,4 +16,28 @@ public class ColaboradorTest {
 
     // TODO: criar 2 testes unitários (AAA + mensagem na asserção)
     // TODO: um deles deve testar registrarPagamento
+    @Test 
+    void addHoraPipeline(){
+        //Arrange
+        AnalistaDados colabAnalista = new AnalistaDados("Sofia", "989A");
+
+        //Act
+        double adicionaHora = colabAnalista.addHoraPipeline(36.0);
+
+        //Assert
+        assertEquals(35.0, adicionaHora, "As horas estão sendo adicionadas corretamente");
+    }
+
+    @Test 
+    void registrarPagamento(){
+        //Arrange
+        AnalistaDados colabAnalista = new AnalistaDados("Helena", "999A");
+        colabAnalista.addHoraPipeline(9.0);
+
+        //Act
+        double salarioFinal = colabAnalista.registrarPagamento();
+
+        //Assert
+        assertEquals(4672.5, salarioFinal);
+    }
 }

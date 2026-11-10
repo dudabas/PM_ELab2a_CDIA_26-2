@@ -20,9 +20,18 @@ public class AnalistaDados extends Colaborador {
      * @return a quantidade efetiva de horas após a operação
      */
     public double addHoraPipeline(double quantidade) {
-        // TODO: se quantidade <= 0, não altera e devolve horasPipeline atual
+         // TODO: se quantidade <= 0, não altera e devolve horasPipeline atual
+        if (quantidade <= 0){
+            return this.horasPipeline;
+        }
+
         // TODO: soma quantidade, sem ultrapassar MAX_HORAS; devolve o novo total
-        return 0.0;
+        else if ((this.horasPipeline + quantidade) > MAX_HORAS){
+            return this.horasPipeline = this.horasPipeline + MAX_HORAS;
+        }
+        else{
+            return this.horasPipeline = this.horasPipeline + quantidade;
+        }
     }
 
     /**
@@ -32,7 +41,9 @@ public class AnalistaDados extends Colaborador {
     @Override
     public double registrarPagamento() {
         // TODO: calcular total, armazenar, zerar horasPipeline e devolver
-        return 0.0;
+        double pagamento = SALARIO + valorHorasPipeline();
+        this.horasPipeline = 0.0;
+        return pagamento;
     }
 
     @Override
